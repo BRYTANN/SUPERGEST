@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>SUPERGEST</title>
+</head>
+<body>
+    <form method="" action="" id="form">
+        <label for="nom">NOM</label>
+        <input type="text" id="nom"><br>
+        <label for="prenom">PRENOM</label>
+        <input type="text" id="prenom"><br>
+        <label for="age">AGE</label>
+        <input type="text" id="age"><br>
+        <label for="MDP">mot de passe</label>
+        <input type="text" id="MDP"><br>
+        <input type="checkbox" id="condition">accepter les conditions<br>
+        <input type="submit" value="soumettre">
+    </form>
+    <script>
+        let form = document.getElementById('form');
+        form.onsubmit = function(event) {
+            let nom = document.getElementById('nom').value;
+            let prenom = document.getElementById('prenom').value;
+            let age = document.getElementById('age').value;
+            let mdp = document.getElementById('MDP').value;
+            let condition = document.getElementById('condition').checked;
+
+            if (nom === '') {
+                event.preventDefault();
+                alert('Veuillez saisir votre nom.');
+                return;
+            }
+            if (prenom === '') {
+                event.preventDefault();
+                alert('Veuillez saisir votre prénom.');
+                return;
+            }
+            if (age === '' || isNaN(age) || Number(age) <= 0) {
+                event.preventDefault();
+                alert('Veuillez saisir un âge valide.');
+                return;
+            }
+            if (mdp === '') {
+                event.preventDefault();
+                alert('Veuillez saisir un mot de passe.');
+                return;
+            }
+            if (!condition) {
+                event.preventDefault();
+                alert('Veuillez accepter les conditions.');
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
